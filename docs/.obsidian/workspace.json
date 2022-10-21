@@ -4,19 +4,27 @@
     "type": "split",
     "children": [
       {
-        "id": "37fc5b13a1db4330",
+        "id": "3c610eadfac3e4a6",
         "type": "tabs",
         "children": [
           {
-            "id": "64558ba419c5e928",
+            "id": "d47bc583bca79f6f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "current sensor.md",
                 "mode": "source",
                 "source": false
               }
+            }
+          },
+          {
+            "id": "6839e66a05e804e9",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "current sensor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "current sensor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "current sensor.md"
               }
             }
           }
@@ -139,6 +147,11 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "64558ba419c5e928",
-  "lastOpenFiles": []
+  "active": "d47bc583bca79f6f",
+  "lastOpenFiles": [
+    "voltage sensor.md",
+    "mash network.md",
+    "README.md",
+    "current sensor.md"
+  ]
 }
