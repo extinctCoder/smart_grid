@@ -1,0 +1,37 @@
+services:
+  home_assistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+
+    container_name: home_assistant
+    hostname: home_assistant
+
+    restart: unless-stopped
+
+    ports:
+      - 8123:8123
+
+    volumes:
+      - ./docker/home_assistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+
+    environment:
+      - TZ=Asia/Dhaka
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+
+    container_name: mosquitto
+    hostname: mosquitto
+
+    restart: unless-stopped
+
+    ports:
+      - 1883:1883
+      - 9001:9001
+
+    volumes:
+      - ./docker/mosquitto/config:/mosquitto/config
+      - /etc/localtime:/etc/localtime:ro
+
+    environment:
+      - TZ=Asia/Dhaka
