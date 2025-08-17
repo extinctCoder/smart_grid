@@ -1,0 +1,5 @@
+jsonb
+pyfiglet
+pydantic
+paho-mqtt
+pydantic-settings

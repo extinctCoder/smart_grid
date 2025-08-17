@@ -1,5 +1,9 @@
 words = [
+    "extinctcoder",
     "mosquitto",
-    "MQTT",
-    "extinctcoder"
+    "mqtt",
+    "paho",
+    "pydantic",
+    "qos",
+    "venv",
 ]
