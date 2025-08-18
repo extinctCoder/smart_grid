@@ -16,7 +16,24 @@ ps_banner = r"""
 """
 
 
-def main():
+def main() -> None:
+    """
+    Main function to run the Power Station Simulator.
+
+    This function:
+    1. Sets up command-line argument parsing
+    2. Loads configuration based on the provided station prefix
+    3. Initializes the station simulator with the configuration
+    4. Runs the simulator in an infinite loop until interrupted
+    5. Performs graceful shutdown on keyboard interrupt
+
+    Command-line arguments:
+        -sp, --station-prefix: Prefix for power station-specific environment variables
+                              (e.g., PS_001)
+
+    Returns:
+        None
+    """
     parser = argparse.ArgumentParser(
         description="⚡ Power Station Simulator",
         epilog="""
@@ -63,4 +80,17 @@ Examples:
 
 
 if __name__ == "__main__":
+    """
+    Entry point for the Power Station Simulator application.
+
+    When this script is executed directly (not imported as a module),
+    this block will run the main() function which:
+    1. Parses command-line arguments
+    2. Loads configuration based on the provided station prefix
+    3. Initializes and runs the station simulator
+    4. Handles graceful shutdown on keyboard interrupt
+
+    Example usage:
+        python main.py --station-prefix PS_001
+    """
     main()

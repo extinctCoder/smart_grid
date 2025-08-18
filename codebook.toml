@@ -6,7 +6,13 @@ words = [
     "pydantic",
     "qos",
     "venv",
-    "__pycache__",
+    "pycache",
     "levelname",
-    "asctime"
+    "asctime",
+    "mkdocs",
+    "mkdocstrings",
+    "powerstation",
+    "formatter",
+    "Formatter's",
+    "Pydantic's"
 ]
