@@ -6,4 +6,7 @@ words = [
     "pydantic",
     "qos",
     "venv",
+    "__pycache__",
+    "levelname",
+    "asctime"
 ]
