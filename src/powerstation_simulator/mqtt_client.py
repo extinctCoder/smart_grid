@@ -64,7 +64,9 @@ class MQTTClient:
         self.client.loop_stop()
         self.client.disconnect()
 
-    def on_connect(self, client, userdata, flags, rc) -> None:
+    def on_connect(
+        self, client: mqtt_client.Client, userdata: Any, flags: dict, rc: int
+    ) -> None:
         """
         Callback for when the client connects to the broker.
 
@@ -80,7 +82,7 @@ class MQTTClient:
         else:
             logger.error(f"Failed to connect, return code {rc}")
 
-    def on_disconnect(self, client, userdata, rc) -> None:
+    def on_disconnect(self, client: mqtt_client.Client, userdata: Any, rc: int) -> None:
         """
         Callback for when the client disconnects from the broker.
 

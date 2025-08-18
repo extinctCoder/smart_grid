@@ -22,4 +22,3 @@ plugins:
       handlers:
         python:
           paths: [src]
-          search: true
