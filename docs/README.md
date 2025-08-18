@@ -1,24 +1,14 @@
-# Welcome to MkDocs
+# Smart Grid Simulator
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Smart Grid Simulator is a virtual power station network designed to emulate real-world power generation and distribution. It allows testing and monitoring of smart grid systems without relying on physical hardware.
 
-## Commands
+## Key Features
+- Simulated Power Stations: Generate realistic power output based on configurable parameters.
+- Real-Time Data Publishing: Station metadata, output, and status are continuously published via MQTT.
+- Configurable & Extensible: Easily set up multiple stations using environment variables or configuration files.
+- Monitoring Ready: Data can be visualized through dashboards or consumed by other applications.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
-
-1. [[mash network|mash_network]]
-2. [[current sensor|current sensor]]
-3. [[voltage sensor|voltage sensor]]
-4.
+## Use Cases
+- Test smart grid applications safely and efficiently.
+- Prototype dashboards and analytics for power monitoring.
+- Simulate renewable and conventional energy sources.
