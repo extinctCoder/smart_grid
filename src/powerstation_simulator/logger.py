@@ -1,5 +1,6 @@
 import logging
 import sys
+from logging import Logger, LogRecord
 
 COLORS = {
     "DEBUG": "\033[34m",  # BLUE
@@ -22,7 +23,7 @@ class ColoredFormatter(logging.Formatter):
         format: Overrides the base Formatter's format method to add colors.
     """
 
-    def format(self, record) -> str:
+    def format(self, record: LogRecord) -> str:
         """
         Format the specified record with colored level names.
 
@@ -38,7 +39,7 @@ class ColoredFormatter(logging.Formatter):
         return super().format(record)
 
 
-def setup_base_logger(level=logging.DEBUG):
+def setup_base_logger(level: int | str = logging.DEBUG) -> Logger:
     """
     Configure and return the root logger with colored output.
 
@@ -47,11 +48,12 @@ def setup_base_logger(level=logging.DEBUG):
     logger already has handlers configured, this function does nothing.
 
     Args:
-        level: The logging level to set for the root logger.
-               Default is logging.DEBUG.
+        level:
+            The logging level to set for the root logger.
+            Default is logging.DEBUG.
 
     Returns:
-        logging.Logger: The configured root logger instance.
+        Logger: The configured root logger instance.
     """
     root_logger = logging.getLogger()
     if not root_logger.hasHandlers():
@@ -65,7 +67,7 @@ def setup_base_logger(level=logging.DEBUG):
     return root_logger
 
 
-def getLogger(name: str):
+def getLogger(name: str) -> Logger:
     """
     Get a logger with the specified name, ensuring the base logger is configured.
 

@@ -1,7 +1,17 @@
 site_name: Smart Grid
+repo_url: https://github.com/extinctCoder/smart_grid
+edit_uri: https://github.com/extinctCoder/smart_grid/docs
+
+site_author: extinctCoder
+site_description: "A smart grid project for efficient energy management."
+site_url: https://extinctcoder.github.io/smart_grid
+copyright: MIT License
 
 theme:
   name: material
+  font:
+    text: "Roboto"
+    code: "Fira Code"
 
 docs_dir: docs
 site_dir: site
