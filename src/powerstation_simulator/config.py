@@ -6,6 +6,16 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppConfig(BaseSettings):
+    """
+    AppConfig is the main configuration class for the power station application.
+
+    This class defines all the necessary configuration parameters for the application,
+    including station metadata, MQTT broker settings, and simulator configurations.
+    It uses Pydantic's BaseSettings for environment variable loading and validation.
+
+    Environment variables are loaded from a .env.sample file by default.
+    """
+
     model_config = SettingsConfigDict(
         env_file=".env.sample",
         env_file_encoding="utf-8",

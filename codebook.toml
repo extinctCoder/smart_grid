@@ -8,5 +8,11 @@ words = [
     "venv",
     "pycache",
     "levelname",
-    "asctime"
+    "asctime",
+    "mkdocs",
+    "mkdocstrings",
+    "powerstation",
+    "formatter",
+    "Formatter's",
+    "Pydantic's"
 ]

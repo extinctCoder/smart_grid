@@ -1,0 +1,15 @@
+site_name: Smart Grid
+
+theme:
+  name: material
+
+docs_dir: docs
+site_dir: site
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          search: true
