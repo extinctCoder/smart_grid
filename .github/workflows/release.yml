@@ -1,0 +1,35 @@
+name: Automated version release Schedule
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+# on:
+#   pull_request:
+#     types:
+#       - closed
+
+jobs:
+  ScheduledRelease:
+    # if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.merged == true
+
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - name: Checkout code repository
+        id: code_checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Releasing new version with Python semantic release
+        id: release_version
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
