@@ -9,9 +9,36 @@ copyright: MIT License
 
 theme:
   name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tooltips
+    - content.code.copy
+    - content.tabs.link
+    - content.code.select
+    - content.code.annotate
+    - content.footnote.tooltips
+    - navigation.top
+    # - navigation.tabs
+    - navigation.path
+    - navigation.expand
+    - navigation.indexes
+  icon:
+    repo: fontawesome/brands/github
   font:
-    text: "Roboto"
-    code: "Fira Code"
+    text: Lato
+    code: Inconsolata
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 docs_dir: docs
 site_dir: site
