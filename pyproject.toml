@@ -1,0 +1,6 @@
+[tool.poetry]
+version = "0.10.1"
+name = "smart_grid"
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:tool.poetry.version:nf"]
