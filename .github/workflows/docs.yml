@@ -1,0 +1,35 @@
+name: Documentation Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  DeployMkdocs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code repository
+        id: code_checkout
+        uses: actions/checkout@v4
+
+      - name: Setup python environment
+        id: setup_python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install the required python modules
+        id: module_installation
+        run: |
+          python -m pip install -r requirements.docs.txt
+
+      - name: Deploy Documentation on gh-pages branch
+        id: deploy_mkdocs
+        run: |
+          mkdocs gh-deploy --force

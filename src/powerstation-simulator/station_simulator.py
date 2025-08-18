@@ -1,6 +1,7 @@
 from random import random
 from threading import Thread
 from time import sleep
+from typing import Any
 
 from config import AppConfig
 from logger import getLogger
@@ -105,7 +106,7 @@ class StationSimulator:
             self.publish_output()
             sleep(self.app_config.PUBLISH_INTERVAL_SECONDS)
 
-    def __handle_control(self, client, userdata, message):
+    def __handle_control(self, client: Any, userdata: Any, message: Any):
         """
         Handle incoming control messages:
         - '1' => start()

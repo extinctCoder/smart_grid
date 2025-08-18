@@ -41,14 +41,16 @@ class MQTTClient:
         self.client.loop_stop()
         self.client.disconnect()
 
-    def on_connect(self, client, userdata, flags, rc) -> None:
+    def on_connect(
+        self, client: mqtt_client.Client, userdata: Any, flags: dict, rc: int
+    ) -> None:
         if rc == 0:
             self.connected = True
             logger.info(f"Connected to MQTT broker at {self.host}:{self.port}")
         else:
             logger.error(f"Failed to connect, return code {rc}")
 
-    def on_disconnect(self, client, userdata, rc) -> None:
+    def on_disconnect(self, client: mqtt_client.Client, userdata: Any, rc: int) -> None:
         self.connected = False
         logger.info("Disconnected from MQTT broker")
 
