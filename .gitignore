@@ -6,6 +6,7 @@ docker/home_assistant/**
 # python git ignores
 venv
 
+.env
 
 **.pyc
 __pycache__

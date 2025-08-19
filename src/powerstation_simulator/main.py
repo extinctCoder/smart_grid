@@ -63,9 +63,7 @@ Examples:
     args = parser.parse_args()
 
     print(ps_banner)
-    logger.info(
-        f"Simple Power Station SIMULATOR serving station : {args.station_prefix}"
-    )
+
     app_config: AppConfig = load_power_station_configs(
         station_prefix=args.station_prefix
     )
