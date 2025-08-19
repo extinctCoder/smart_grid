@@ -1,4 +1,6 @@
 from json import dumps
+from random import choices
+from string import ascii_letters, digits
 from typing import Any
 
 from config import AppConfig
@@ -41,7 +43,7 @@ class MQTTClient:
         self.connected: bool = False
 
         self.client: mqtt_client.Client = mqtt_client.Client(
-            client_id=client_id,
+            client_id=f"{client_id}_".join(choices(ascii_letters + digits, k=6)),
             transport="websockets" if enable_websocket else "tcp",
         )
         if username and password:

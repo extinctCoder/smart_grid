@@ -1,8 +1,11 @@
 from os import getenv
 from typing import Annotated
 
+from logger import getLogger
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+logger = getLogger(__name__)
 
 
 class AppConfig(BaseSettings):
@@ -25,25 +28,21 @@ class AppConfig(BaseSettings):
     )
 
     # Metadata (static info)
-    POWER_STATION_ID: Annotated[str, Field(alias="POWER_STATION_ID")] = "ps-001"
-    LOCATION: Annotated[str, Field(alias="LOCATION")] = "Dhaka, Bangladesh"
-    CAPACITY_KW: Annotated[int, Field(alias="CAPACITY_KW")] = 1000
+    POWER_STATION_ID: Annotated[str, Field()] = "PS_001"
+    LOCATION: Annotated[str, Field()] = "Dhaka, Bangladesh"
+    CAPACITY_KW: Annotated[int, Field()] = 1000
 
     # MQTT broker config
-    MQTT_HOST: Annotated[str, Field(alias="MQTT_HOST")] = "localhost"
-    MQTT_PORT: Annotated[int, Field(alias="MQTT_PORT")] = 1883
-    MQTT_USERNAME: Annotated[str, Field(alias="MQTT_USERNAME")] = "extinctcoder"
-    MQTT_PASSWORD: Annotated[str, Field(alias="MQTT_PASSWORD")] = "Mosquitto123456#"
-    MQTT_TOPIC_PREFIX: Annotated[str, Field(alias="MQTT_TOPIC_PREFIX")] = (
-        "smartgrid/powerstation"
-    )
+    MQTT_HOST: Annotated[str, Field()] = "127.0.0.1"
+    MQTT_PORT: Annotated[int, Field()] = 1883
+    MQTT_USERNAME: Annotated[str, Field()] = "extinctcoder"
+    MQTT_PASSWORD: Annotated[str, Field()] = "Mosquitto123456#"
+    MQTT_TOPIC_PREFIX: Annotated[str, Field()] = "smartgrid/powerstation"
 
-    ENABLE_WEBSOCKET: Annotated[bool, Field(alias="ENABLE_WEBSOCKET")] = False
+    ENABLE_WEBSOCKET: Annotated[bool, Field()] = False
 
     # Simulator settings
-    PUBLISH_INTERVAL_SECONDS: Annotated[
-        int, Field(alias="PUBLISH_INTERVAL_SECONDS")
-    ] = 2
+    PUBLISH_INTERVAL_SECONDS: Annotated[int, Field()] = 1
 
     STATUS_PUBLISH_INTERVAL_SECONDS: int = PUBLISH_INTERVAL_SECONDS * 2
     METADATA_PUBLISH_INTERVAL_SECONDS: int = PUBLISH_INTERVAL_SECONDS * 5
@@ -55,6 +54,8 @@ def load_power_station_configs(station_prefix: str | None = None) -> AppConfig:
     If no prefix is provided explicitly, reads from the STATION_PREFIX env var.
     """
     station_prefix = station_prefix or getenv("STATION_PREFIX")
+
+    logger.info(f"Simple Power Station SIMULATOR serving station : {station_prefix}")
 
     if not station_prefix:
         return AppConfig()  # fallback to default or global settings

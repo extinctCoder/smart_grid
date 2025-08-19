@@ -1,4 +1,3 @@
-jsonb
 pydantic
 paho-mqtt
 pydantic-settings

@@ -35,3 +35,35 @@ services:
 
     environment:
       - TZ=Asia/Dhaka
+
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "1883"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 1s
+
+  powerstation_simulator:
+    image: ps_sim:dev
+    build:
+      context: .
+      dockerfile: ps_sim.dockerfile
+
+    container_name: powerstation_simulator
+    hostname: powerstation_simulator
+
+    restart: unless-stopped
+
+    depends_on:
+      mosquitto:
+        condition: service_healthy
+
+    env_file:
+      - .env.sample
+
+    environment:
+      - TZ=Asia/Dhaka
+      - STATION_PREFIX=PS_001
+
+    volumes:
+      - ./src/powerstation_simulator:/app/src
