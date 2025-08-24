@@ -1,12 +1,14 @@
 .DS_Store
 
+# basic git ignores
+.env
 .obsidian
+
+# docker git ignores
 docker/home_assistant/**
+docker/influxdb/**
 
 # python git ignores
-venv
-
-.env
-
+venv/**
 **.pyc
 __pycache__

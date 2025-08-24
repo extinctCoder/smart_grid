@@ -1,0 +1,4 @@
+pydantic
+paho-mqtt
+influxdb-client
+pydantic-settings

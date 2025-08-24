@@ -44,7 +44,7 @@ services:
       start_period: 1s
 
   powerstation_simulator:
-    image: ps_sim:dev
+    # image: ps_sim:dev
     build:
       context: .
       dockerfile: ps_sim.dockerfile
@@ -67,3 +67,49 @@ services:
 
     volumes:
       - ./src/powerstation_simulator:/app/src
+      - /etc/localtime:/etc/localtime:ro
+
+  grafana:
+    image: grafana/grafana:latest
+
+    container_name: grafana
+    hostname: grafana
+
+    restart: unless-stopped
+
+    ports:
+      - 3000:3000
+
+    environment:
+      - TZ=Asia/Dhaka
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+      - ./docker/grafana/dashboards:/var/lib/grafana/dashboards
+
+  influxdb:
+    image: influxdb:latest
+
+    container_name: influxdb
+    hostname: influxdb
+
+    restart: unless-stopped
+
+    ports:
+      - 8086:8086
+
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
+      - DOCKER_INFLUXDB_INIT_ORG=smartgrid
+      - DOCKER_INFLUXDB_INIT_BUCKET=telemetry
+      - TZ=Asia/Dhaka
+
+    volumes:
+      - ./docker/influxdb:/var/lib/influxdb
+      - /etc/localtime:/etc/localtime:ro
