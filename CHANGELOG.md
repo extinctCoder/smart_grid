@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.2.0 (2025-12-13)
+
+### Features
+
+- **docs**: Update project documentation and enhance clarity
+  ([`b762ca1`](https://github.com/extinctCoder/smart_grid/commit/b762ca14f7c14ee48f11c3fc0a5423f0e0d278ec))
+
+
 ## v1.1.0 (2025-08-19)
 
 ### Chores
